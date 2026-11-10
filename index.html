@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="todo-app">
+    <header class="app-header">
+      <div class="header-top">
+        <h1>To-Do List</h1>
+        <button type="button" id="theme-toggle-btn" class="btn-theme" title="다크 모드 전환" aria-label="테마 전환">
+          🌙
+        </button>
+      </div>
+      <p class="subtitle">오늘 할 일을 기록하고 관리해보세요</p>
+    </header>
+
+    <!-- 검색창 -->
+    <div class="search-container">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="🔍 할 일 검색..."
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- 할 일 입력 폼 (텍스트 + 마감일) -->
+    <form id="todo-form" class="todo-form">
+      <div class="input-row">
+        <input
+          type="text"
+          id="todo-input"
+          placeholder="새로운 할 일을 입력하세요..."
+          autocomplete="off"
+          required
+        />
+        <button type="submit" id="add-btn" class="btn-primary">추가</button>
+      </div>
+      <div class="form-options">
+        <label for="todo-due-date" class="due-label">
+          📅 마감일:
+          <input type="date" id="todo-due-date" />
+        </label>
+      </div>
+    </form>
+
+    <!-- 필터 탭 -->
+    <nav class="filter-tabs" aria-label="할 일 필터">
+      <button type="button" class="tab-btn active" data-filter="all">전체</button>
+      <button type="button" class="tab-btn" data-filter="active">진행 중</button>
+      <button type="button" class="tab-btn" data-filter="completed">완료</button>
+      <button type="button" class="tab-btn" data-filter="important">⭐ 중요</button>
+    </nav>
+
+    <div class="todo-summary">
+      <span id="task-count">총 0개의 할 일</span>
+      <button type="button" id="clear-completed-btn" class="btn-clear hidden">
+        완료된 항목 삭제
+      </button>
+    </div>
+
+    <ul id="todo-list" class="todo-list"></ul>
+
+    <div id="empty-state" class="empty-state">
+      <p id="empty-message">등록된 할 일이 없습니다 ✨</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
